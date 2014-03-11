@@ -1,7 +1,7 @@
 (function(){
     var body = document.querySelector('body').style;
-    var specHeader = document.querySelector('#respecHeader').style;
-    var toc = document.querySelector('#respecContents').style;
+    var specHeader = document.querySelector('#respecHeader');
+    var toc = document.querySelector('#rspecContents');
     var pList = document.querySelectorAll('p');
     var ulList = document.querySelectorAll('ul');
     var header2List = document.querySelectorAll('h2');
@@ -15,8 +15,17 @@
     body.maxWidth = '720px';
     body.margin = '0 auto';
     body.color = '#333';
-    toc.marginLeft = '1rem';
-    toc.fontWeight = '300';
+
+    if(toc){
+        toc.style.marginLeft = '1rem';
+        toc.style.fontWeight = '300';
+    }
+
+    if(specHeader){
+        specHeader.fontSize = '0.8rem';
+        specHeader.color = '#444';
+        specHeader.lineHeight = '1.2rem';
+    }
 
     forEach.call(algorithmBlocks, function(algorithm){
         algorithm.style.margin = '3rem 0 3rem 0';
@@ -24,10 +33,6 @@
         algorithm.style.backgroundColor = '#fafafa';
         algorithm.style.lineHeight = '1.6rem';
     });
-
-    specHeader.fontSize = '0.8rem';
-    specHeader.color = '#444';
-    specHeader.lineHeight = '1.2rem';
 
     forEach.call(header2List, function(h2){
         h2.style.fontSize = '2rem';
